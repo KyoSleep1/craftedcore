@@ -29,7 +29,7 @@ public class ForgeEventHandlerClient {
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
     public static void eventRenderGameOverlayEvent(RenderGuiEvent.Post event) {
-        ClientGuiEvents.RENDER_HUD.invoker().renderHud(event.getGuiGraphics(), event.getPartialTick());
+        ClientGuiEvents.RENDER_HUD.invoker().renderHud(event.getPoseStack(), event.getPartialTick());
     }
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)

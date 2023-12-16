@@ -1,8 +1,9 @@
 package tocraft.craftedcore.events.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphics;
 import tocraft.craftedcore.events.Event;
 import tocraft.craftedcore.events.EventBuilder;
 
@@ -19,6 +20,6 @@ public interface ClientGuiEvents {
          * @param graphics  The graphics context.
          * @param tickDelta The tick delta.
          */
-        void renderHud(GuiGraphics graphics, float tickDelta);
+        void renderHud(PoseStack graphics, float tickDelta);
     }
 }

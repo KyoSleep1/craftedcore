@@ -78,7 +78,7 @@ public class NetworkManagerImpl {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final ResourceLocation CHANNEL_ID = CraftedCore.id("network");
     static final ResourceLocation SYNC_IDS = CraftedCore.id("sync_ids");
-    static final EventNetworkChannel CHANNEL =  NetworkRegistry.newEventChannel(CHANNEL_ID, () -> "1", version -> true, version -> true);
+    static final EventNetworkChannel CHANNEL = NetworkRegistry.newEventChannel(CHANNEL_ID, () -> "1", version -> true, version -> true);
     static final Map<ResourceLocation, NetworkReceiver> S2C = Maps.newHashMap();
     static final Map<ResourceLocation, NetworkReceiver> C2S = Maps.newHashMap();
     static final Map<ResourceLocation, PacketTransformer> S2C_TRANSFORMERS = Maps.newHashMap();
@@ -172,7 +172,7 @@ public class NetworkManagerImpl {
     }
     
     public static Packet<ClientGamePacketListener> createAddEntityPacket(Entity entity) {
-    	return (Packet<ClientGamePacketListener>) NetworkHooks.getEntitySpawningPacket(entity);
+        return (Packet<ClientGamePacketListener>) NetworkHooks.getEntitySpawningPacket(entity);
     }
     
     static FriendlyByteBuf sendSyncPacket(Map<ResourceLocation, NetworkReceiver> map) {
