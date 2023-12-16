@@ -1,7 +1,7 @@
 package tocraft.craftedcore;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -13,9 +13,9 @@ import tocraft.craftedcore.platform.VersionChecker;
 
 public class CraftedCore {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(CraftedCore.class);
+	public static final Logger LOGGER = LogManager.getLogger(CraftedCore.class);
 	public static final String MODID = "craftedcore";
-	private static String versionURL = "https://raw.githubusercontent.com/ToCraft/craftedcore/1.18.2/gradle.properties";
+	private static String versionURL = "https://raw.githubusercontent.com/ToCraft/craftedcore/1.16.5/gradle.properties";
 	
 	public void initialize() {
 		// ensure the client will receive and handle the configuration package 

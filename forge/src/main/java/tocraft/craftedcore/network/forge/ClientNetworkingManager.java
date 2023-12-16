@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.network.NetworkDirection;
+import net.minecraftforge.fml.network.NetworkDirection;
 import tocraft.craftedcore.network.NetworkManager;
 
 @OnlyIn(Dist.CLIENT)

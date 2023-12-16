@@ -9,14 +9,14 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
-import com.mojang.logging.LogUtils;
 
 import io.netty.buffer.Unpooled;
 import net.minecraft.network.FriendlyByteBuf;
@@ -33,11 +33,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.NetworkDirection;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.event.EventNetworkChannel;
+import net.minecraftforge.fml.network.NetworkDirection;
+import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.event.EventNetworkChannel;
 import tocraft.craftedcore.CraftedCore;
 import tocraft.craftedcore.network.NetworkManager;
 import tocraft.craftedcore.network.NetworkManager.NetworkReceiver;
@@ -75,7 +75,7 @@ public class NetworkManagerImpl {
         }
     }
     
-    private static final Logger LOGGER = LogUtils.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
     private static final ResourceLocation CHANNEL_ID = CraftedCore.id("network");
     static final ResourceLocation SYNC_IDS = CraftedCore.id("sync_ids");
     static final EventNetworkChannel CHANNEL = NetworkRegistry.newEventChannel(CHANNEL_ID, () -> "1", version -> true, version -> true);

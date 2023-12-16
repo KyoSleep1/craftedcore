@@ -9,6 +9,10 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+}
+
 configurations {
     common
     shadowCommon
@@ -20,7 +24,7 @@ configurations {
 
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}+${rootProject.minecraft_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}+1.16"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive = false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive = false }
@@ -37,6 +41,8 @@ processResources {
 }
 
 shadowJar {
+    exclude "craftedcore.common.json"
+    
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
 }
