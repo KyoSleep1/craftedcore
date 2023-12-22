@@ -20,7 +20,7 @@ public class MixinMinecraft {
     @Nullable
     public LocalPlayer player;
 	
-	@Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;)V",
+	@Inject(method = "clearLevel(Lnet/minecraft/client/gui/screens/Screen;)V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/GameNarrator;clear()V"))
     private void handleLogin(Screen screen, CallbackInfo ci) {
         ClientPlayerEvents.CLIENT_PLAYER_QUIT.invoker().quit(player);
