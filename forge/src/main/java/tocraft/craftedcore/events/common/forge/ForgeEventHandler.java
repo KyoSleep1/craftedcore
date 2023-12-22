@@ -20,12 +20,12 @@ public class ForgeEventHandler {
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
     public static void event(RegisterCommandsEvent event) {
-        CommandEvents.REGISTRATION.invoker().register(event.getDispatcher(), event.getBuildContext(), event.getCommandSelection());
+        CommandEvents.REGISTRATION.invoker().register(event.getDispatcher(), event.getEnvironment());
     }
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
     public static void eventPlayerInteractEvent(PlayerInteractEvent.EntityInteract event) {
-        Result result = PlayerEvents.INTERACT_ENTITY.invoker().interact(event.getEntity(), event.getTarget(), event.getHand());
+        Result result = PlayerEvents.INTERACT_ENTITY.invoker().interact(event.getPlayer(), event.getTarget(), event.getHand());
         if (result.isPresent()) {
             event.setCanceled(true);
             event.setCancellationResult(result.asMinecraft());

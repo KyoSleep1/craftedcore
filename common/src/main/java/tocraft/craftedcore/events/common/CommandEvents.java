@@ -2,7 +2,6 @@ package tocraft.craftedcore.events.common;
 
 import com.mojang.brigadier.CommandDispatcher;
 
-import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import tocraft.craftedcore.events.Event;
@@ -15,6 +14,6 @@ public interface CommandEvents {
 	
 	interface CommandRegistration {
 		
-	    void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext registry, Commands.CommandSelection selection);
+	    void register(CommandDispatcher<CommandSourceStack> dispatcher, Commands.CommandSelection selection);
     }
 }

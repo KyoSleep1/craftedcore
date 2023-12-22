@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
-import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,7 +15,7 @@ import tocraft.craftedcore.events.client.ClientTickEvents;
 @OnlyIn(Dist.CLIENT)
 public class ForgeEventHandlerClient {
 	@SubscribeEvent(priority = EventPriority.HIGH)
-    public static void event(ClientPlayerNetworkEvent.LoggingIn event) {
+    public static void event(ClientPlayerNetworkEvent.LoggedInEvent event) {
         ClientPlayerEvents.CLIENT_PLAYER_JOIN.invoker().join(event.getPlayer());
     }
 	
@@ -28,12 +28,12 @@ public class ForgeEventHandlerClient {
     }
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
-    public static void eventRenderGameOverlayEvent(RenderGuiEvent.Post event) {
-        ClientGuiEvents.RENDER_HUD.invoker().renderHud(event.getPoseStack(), event.getPartialTick());
+    public static void eventRenderGameOverlayEvent(RenderGameOverlayEvent.Post event) {
+        ClientGuiEvents.RENDER_HUD.invoker().renderHud(event.getMatrixStack(), event.getPartialTicks());
     }
 	
 	@SubscribeEvent(priority = EventPriority.HIGH)
-    public static void event(ClientPlayerNetworkEvent.LoggingOut event) {
+    public static void event(ClientPlayerNetworkEvent.LoggedOutEvent event) {
         ClientPlayerEvents.CLIENT_PLAYER_QUIT.invoker().quit(event.getPlayer());
     }
 }

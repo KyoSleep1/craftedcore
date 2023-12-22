@@ -9,13 +9,15 @@ import java.nio.charset.StandardCharsets;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import tocraft.craftedcore.CraftedCore;
 import tocraft.craftedcore.events.common.PlayerEvents;
 
 public class VersionChecker {
 	
 	public static void registerChecker(String modid, String versionURL) {
-		registerChecker(modid, versionURL, Component.literal(modid));
+		registerChecker(modid, versionURL, new TextComponent(modid));
 	}
 	
 	public static void registerChecker(String modid, String versionURL, Component modName) {
@@ -27,7 +29,7 @@ public class VersionChecker {
 				CraftedCore.LOGGER.warn("Version check for "+ modName.getString() + " failed");
 			// Notifies the joined player, that newer version is available
 			else if (!newestVersion.equals(Platform.getMod(modid).getVersion())) {
-				player.sendSystemMessage(Component.translatable(CraftedCore.MODID + ".update", modName, newestVersion));
+				player.displayClientMessage(new TranslatableComponent(CraftedCore.MODID + ".update", modName, newestVersion), false);
 			}
 		});
 	}
