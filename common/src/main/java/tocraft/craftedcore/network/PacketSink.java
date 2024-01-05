@@ -15,7 +15,7 @@ public interface PacketSink {
     
     static PacketSink ofPlayers(Iterable<? extends ServerPlayer> players) {
         return packet -> {
-            for (var player : players) {
+            for (ServerPlayer player : players) {
                 Objects.requireNonNull(player, "Unable to send packet to a 'null' player!").connection.send(packet);
             }
         };

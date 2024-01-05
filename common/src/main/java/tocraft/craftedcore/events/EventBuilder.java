@@ -24,7 +24,7 @@ public class EventBuilder {
         return new EventImpl<>(listeners -> (T) Proxy.newProxyInstance(EventBuilder.class.getClassLoader(), new Class[]{clazz}, new AbstractInvocationHandler() {
             @Override
             protected Object handleInvocation(Object proxy, Method method, Object[] args) throws Throwable {
-                for (var listener : listeners) {
+                for (T listener : listeners) {
                 	// invoke method per listener
                 	MethodHandles.lookup().unreflect(method).bindTo(listener).invokeWithArguments(args);
                 }
@@ -43,8 +43,8 @@ public class EventBuilder {
         return new EventImpl<>(listeners -> (T) Proxy.newProxyInstance(EventBuilder.class.getClassLoader(), new Class[]{clazz}, new AbstractInvocationHandler() {
             @Override
             protected Object handleInvocation(Object proxy, Method method, Object[] args) throws Throwable {
-                for (var listener : listeners) {
-                    var result = (Event.Result) MethodHandles.lookup().unreflect(method).bindTo(listener).invokeWithArguments(args);
+                for (T listener : listeners) {
+                    Event.Result result = (Event.Result) MethodHandles.lookup().unreflect(method).bindTo(listener).invokeWithArguments(args);
                     if (result.interruptsFurtherEvaluation()) {
                         return result;
                     }
