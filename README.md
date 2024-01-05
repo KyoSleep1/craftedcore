@@ -3,6 +3,8 @@
 ![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Ftocraft.ddns.net%2Fmaven%2Freleases%2Fdev%2Ftocraft%2Fcraftedcore%2Fmaven-metadata.xml&versionPrefix=1.16.5-forge&label=CraftedCore)
 ![Maven metadata URL](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Ftocraft.ddns.net%2Fmaven%2Freleases%2Fdev%2Ftocraft%2Fcraftedcore%2Fmaven-metadata.xml&versionPrefix=1.16.5-fabric&label=CraftedCore)
 
+# I'm sorry to say that 1.16.5 will not be supported anymore since it's way to old and too many bugs occure because of that. I'll still accept PRs, nevertheless.
+
 # CraftedCore
 
 This mod is my basic libary mod, so my mods would work across modloader and it won't take me that long to port my mods.
